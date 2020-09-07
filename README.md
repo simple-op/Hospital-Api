@@ -24,7 +24,7 @@ Symptoms-Quarantine, Positive-Admit]
  npm start
 
 
-#API collection : 
+# API collection : 
  - /doctors/register
  - /doctors/login 
  - /register_patient 
