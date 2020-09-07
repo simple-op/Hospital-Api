@@ -80,16 +80,15 @@ module.exports.createReport = async function(req,res){
             status: status ,
             doctor: doctor,
             patient: patient,
-            Date: new Date().toDateString(),
-            Time: new Date().toTimeString()
+            Date: new Date().toDateString()
+            
         })
 
         //fetch the required details from the new report
         report = await Report
-        .findById(report._id,{_id:0,updatedAt:0,__v:0,createdAt:0})
-        .populate('status',{_id:0})
-        .populate('doctor',{_id:0,username:0,password: 0,updatedAt:0,createdAt:0,__v:0})
-        .populate('patient',{_id:0,updatedAt:0,createdAt:0,__v:0})
+        .findById(report._id)
+        .populate('doctors')
+        .populate('patients')
         return res.json(200,report);
         
         
@@ -117,17 +116,15 @@ module.exports.allReports = async function(req,res){
         }
 
         let reports = await Report
-        .find({patient: patient},{_id:0,updatedAt:0,__v:0})
-        .sort('createdAt')
-        .populate('status',{_id:0})
-        .populate('doctor',{_id:0,username:0,password: 0,updatedAt:0,createdAt:0,__v:0})
-        .populate('patient',{_id:0,updatedAt:0,createdAt:0,__v:0})
+        .find({patient: patient})
+        .sort('createdAt').populate('doctors')
+        .populate('patients')
 
         return res.status(200).json({reports: reports});
     }
     catch(err){
         console.log(err);
-        returnres.status(500).json({
+        return res.status(500).json({
             message: "Error in fetching the reports!",        
         })
     }
