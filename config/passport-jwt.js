@@ -4,7 +4,7 @@ const ExtractJWT = require('passport-jwt').ExtractJwt;
 
 const doctors = require('../models/doctors');
 
-
+// options for jwt secret string ,and bearer token extraction
 let opts = {
     jwtFromRequest: ExtractJWT.fromAuthHeaderAsBearerToken(),
     secretOrKey: 'ptwmjgad'
@@ -12,7 +12,7 @@ let opts = {
 
 console.log("jwtPayLoad")
 passport.use(new JWTStrategy(opts, function(jwtPayLoad, done){
-
+// findind doctors with the id
     doctors.findById(jwtPayLoad._id, function(err, user){
          console.log(jwtPayLoad,"asdsa")
         if (err){console.log('Error in finding user from JWT'); return;}
