@@ -1,4 +1,4 @@
-#Hospital-api
+# Hospital-api
 We’re going to design an API for the doctors of a Hospital which has been
 allocated by the govt for testing and quarantine + well being of COVID-19
 patients
@@ -17,7 +17,7 @@ already exists, just return the patient info in the API)
 Symptoms-Quarantine, Positive-Admit]
 - Date
 
-#TO RUN
+# TO RUN
  Clone the Repo.
  cd to hostpital-api
  npm install
@@ -25,16 +25,16 @@ Symptoms-Quarantine, Positive-Admit]
 
 
 #API collection : 
- /doctors/register
- /doctors/login 
- /register_patient 
- /patient/:id/create_report 
- /patient/:id/all_report 
- /reports/:status
+ - /doctors/register
+ - /doctors/login 
+ - /register_patient 
+ - /patient/:id/create_report 
+ - /patient/:id/all_report 
+ - /reports/:status
 
-#Server
- Server will be running on localhost:8000
+# Server
+ - Server will be running on localhost:8000
 
-#Tools
+# Tools
 
-  Postman (to check api response)
+ - Postman (to check api response)
